@@ -1,13 +1,7 @@
 <template>
 
-    <div class="container">
-
-        <h1 class="title">Projects</h1>
-
-        <div class="projects-row">
-            <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
-        </div>
-
+    <div class="projects-grid">
+        <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
     </div>
 
 </template>
@@ -46,6 +40,7 @@ export default {
             .catch(err => {
                 console.log(err)
             })
+            
         },
     },
     mounted() {
@@ -55,15 +50,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.title {
-    text-align: center;
-    padding: 2rem 0;
-}
-.projects-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    row-gap: 2rem;
+@use '../src/styles/partials/_resets' as *;
+@use '../src/styles/partials/_variables' as *;
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
     justify-content: space-between;
+    padding: 0 2rem 2rem;
 }
 </style>
