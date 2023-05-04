@@ -1,7 +1,11 @@
 <template>
 
-    <div class="projects-grid">
+    <div v-if="loading === false" class="projects-grid">
         <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
+    </div>
+
+    <div v-else class="container">
+        <div class="lds-dual-ring"></div>
     </div>
 
 </template>
@@ -17,11 +21,15 @@ export default {
     },
     data() {
         return {
-            projects: []
+            projects: [],
+            loading: true
         }
     },
     methods: {
         fecthProjects(){
+
+            this.loading = true
+
             axios.get('http://127.0.0.1:8000/api/projects', {
             })
             .then(res=> {
@@ -40,7 +48,9 @@ export default {
             .catch(err => {
                 console.log(err)
             })
-            
+            .finally(()=> {
+                this.loading = false
+            })
         },
     },
     mounted() {
@@ -52,11 +62,19 @@ export default {
 <style lang="scss" scoped>
 @use '../src/styles/partials/_resets' as *;
 @use '../src/styles/partials/_variables' as *;
+@use '../src/styles/partials/_loading' as *;
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.75rem;
+    gap: 1.25rem;
     justify-content: space-between;
     padding: 0 2rem 2rem;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 </style>

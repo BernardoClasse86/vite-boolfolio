@@ -16,13 +16,20 @@
             <li class="nav_item">
                 <router-link :to="{name:'about'}"><span class="nav_num">03.</span> About</router-link>
             </li>
+            <li class="nav_item">
+                <span class="nav_num">04.</span> Contacts
+            </li>
         </ul>
     </div>
 </template>
 
 <script>
     export default {
-        
+        mounted() {
+            setTimeout(() => {
+                document.querySelector('.nav_bar').style.opacity = 1
+            }, 1000)
+        }
     }
 </script>
 
@@ -34,6 +41,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    opacity: 0;
+    transition: opacity 0.5s linear;
 
     .nav_logo {
         width: 30px;

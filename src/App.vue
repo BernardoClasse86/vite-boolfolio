@@ -27,7 +27,6 @@ export default {
     <Footer />
   </footer>
 </div>
-
 </template>
 
 <style lang="scss" scoped>

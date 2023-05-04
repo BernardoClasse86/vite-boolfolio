@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <h1>My career</h1>
     </div>
 </template>
@@ -11,5 +11,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+.container {
+    height: 100vh;
+}
 </style>
