@@ -19,6 +19,14 @@
             <li class="nav_item">
                 <span class="nav_num">04.</span> Contacts
             </li>
+
+            <li class="nav_item">
+                <div class="btn-container">
+                    <div class="btn">
+                        <a href="curriculm">Download CV</a>                    
+                    </div>
+                </div>
+            </li>
         </ul>
     </div>
 </template>
@@ -36,6 +44,7 @@
 <style lang="scss" scoped>
 @use '../src/styles/partials/resets' as *;
 @use '../src/styles/partials/variables' as *;
+@use '../src/styles/partials/_button.scss' as*;
 .nav_bar {
     display: flex;
     justify-content: space-between;
@@ -58,7 +67,7 @@
         align-items: center;
         justify-content: space-around;
         gap: 1rem;
-        font-size: 0.75rem;
+        font-size: 1rem;
         font-family: 'Roboto Mono', monospace;
 
         .nav_item {

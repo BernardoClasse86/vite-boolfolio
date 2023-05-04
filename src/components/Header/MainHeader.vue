@@ -22,7 +22,6 @@
                     header.classList.remove('shadow')
                 }
             }
-            
         },
         mounted() {
             window.addEventListener('scroll', this.pageScroll)
